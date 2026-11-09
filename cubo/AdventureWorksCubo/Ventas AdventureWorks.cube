@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>VentasAW</ID>
+  <Name>Ventas AdventureWorks</Name>
+  <CreatedTimestamp>2026-11-08T22:04:49.74Z</CreatedTimestamp>
+  <LastSchemaUpdate>2026-11-08T22:04:49.74Z</LastSchemaUpdate>
+  <LastProcessed>2026-11-08T22:04:50.56Z</LastProcessed>
+  <State>Processed</State>
+  <Language>1033</Language>
+  <Collation>Modern_Spanish_CI_AS</Collation>
+  <Dimensions>
+    <Dimension>
+      <ID>Fecha</ID>
+      <Name>Fecha</Name>
+      <DimensionID>Fecha</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>DateKey</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Anio</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Trimestre</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy>
+          <HierarchyID>Año-Trimestre-Mes</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension>
+      <ID>Producto</ID>
+      <Name>Producto</Name>
+      <DimensionID>Producto</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>ProductKey</AttributeID>
+          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+        </Attribute>
+        <Attribute>
+          <AttributeID>NombreProducto</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Subcategoria</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Categoria</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy>
+          <HierarchyID>Categoría-Subcategoría-Producto</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension>
+      <ID>Territorio</ID>
+      <Name>Territorio de Ventas</Name>
+      <DimensionID>Territorio</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>TerritoryKey</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Region</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Pais</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Grupo</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy>
+          <HierarchyID>Grupo-País-Región</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>VentasInternet</ID>
+      <Name>Ventas por Internet</Name>
+      <CreatedTimestamp>2026-11-08T22:04:49.743333Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-08T22:04:49.743333Z</LastSchemaUpdate>
+      <LastProcessed>2026-11-08T22:04:50.466667Z</LastProcessed>
+      <State>Processed</State>
+      <Measures>
+        <Measure>
+          <ID>VentasInternetMonto</ID>
+          <Name>Internet Monto de Ventas</Name>
+          <DataType>Currency</DataType>
+          <Source>
+            <DataType>Currency</DataType>
+            <Source xsi:type="ColumnBinding">
+              <TableID>FactInternetSales</TableID>
+              <ColumnID>SalesAmount</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>Currency</FormatString>
+        </Measure>
+        <Measure>
+          <ID>VentasInternetCosto</ID>
+          <Name>Internet Costo del Producto</Name>
+          <DataType>Currency</DataType>
+          <Source>
+            <DataType>Currency</DataType>
+            <Source xsi:type="ColumnBinding">
+              <TableID>FactInternetSales</TableID>
+              <ColumnID>TotalProductCost</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>Currency</FormatString>
+        </Measure>
+        <Measure>
+          <ID>VentasInternetCant</ID>
+          <Name>Internet Cantidad</Name>
+          <DataType>Integer</DataType>
+          <Source>
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding">
+              <TableID>FactInternetSales</TableID>
+              <ColumnID>OrderQuantity</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#</FormatString>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <EstimatedSize>523459</EstimatedSize>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>Fecha</CubeDimensionID>
+          <Cardinality>One</Cardinality>
+          <Attributes>
+            <Attribute>
+              <AttributeID>DateKey</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>FactInternetSales</TableID>
+                    <ColumnID>OrderDateKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Anio</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Trimestre</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarQuarter</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Mes</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>MonthNumberOfYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>Producto</CubeDimensionID>
+          <Cardinality>One</Cardinality>
+          <Attributes>
+            <Attribute>
+              <AttributeID>ProductKey</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>FactInternetSales</TableID>
+                    <ColumnID>ProductKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute>
+              <AttributeID>NombreProducto</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProduct</TableID>
+                    <ColumnID>EnglishProductName</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Subcategoria</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProductSubcategory</TableID>
+                    <ColumnID>ProductSubcategoryKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Categoria</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProductCategory</TableID>
+                    <ColumnID>ProductCategoryKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>Territorio</CubeDimensionID>
+          <Cardinality>One</Cardinality>
+          <Attributes>
+            <Attribute>
+              <AttributeID>TerritoryKey</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>FactInternetSales</TableID>
+                    <ColumnID>SalesTerritoryKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Region</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesTerritory</TableID>
+                    <ColumnID>SalesTerritoryRegion</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Pais</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesTerritory</TableID>
+                    <ColumnID>SalesTerritoryCountry</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Grupo</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesTerritory</TableID>
+                    <ColumnID>SalesTerritoryGroup</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions>
+        <Partition>
+          <ID>VentasInternet</ID>
+          <Name>Ventas por Internet</Name>
+          <CreatedTimestamp>2026-11-08T22:04:49.746667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2026-11-08T22:04:49.746667Z</LastSchemaUpdate>
+          <LastProcessed>2026-11-08T22:04:50.463333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding">
+            <DataSourceID>AdventureWorksDW2022</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>FactInternetSales</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+          <EstimatedSize>523459</EstimatedSize>
+        </Partition>
+      </Partitions>
+      <ProactiveCaching>
+        <SilenceInterval>-PT1S</SilenceInterval>
+        <Latency>-PT1S</Latency>
+        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+        <Source xsi:type="ProactiveCachingInheritedBinding" />
+      </ProactiveCaching>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>VentasReseller</ID>
+      <Name>Ventas por Revendedor</Name>
+      <CreatedTimestamp>2026-11-08T22:04:49.75Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-08T22:04:49.75Z</LastSchemaUpdate>
+      <LastProcessed>2026-11-08T22:04:50.556667Z</LastProcessed>
+      <State>Processed</State>
+      <Measures>
+        <Measure>
+          <ID>VentasResellerMonto</ID>
+          <Name>Reseller Monto de Ventas</Name>
+          <DataType>Currency</DataType>
+          <Source>
+            <DataType>Currency</DataType>
+            <Source xsi:type="ColumnBinding">
+              <TableID>FactResellerSales</TableID>
+              <ColumnID>SalesAmount</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>Currency</FormatString>
+        </Measure>
+        <Measure>
+          <ID>VentasResellerCosto</ID>
+          <Name>Reseller Costo del Producto</Name>
+          <DataType>Currency</DataType>
+          <Source>
+            <DataType>Currency</DataType>
+            <Source xsi:type="ColumnBinding">
+              <TableID>FactResellerSales</TableID>
+              <ColumnID>TotalProductCost</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>Currency</FormatString>
+        </Measure>
+        <Measure>
+          <ID>VentasResellerCant</ID>
+          <Name>Reseller Cantidad</Name>
+          <DataType>Integer</DataType>
+          <Source>
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding">
+              <TableID>FactResellerSales</TableID>
+              <ColumnID>OrderQuantity</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,#</FormatString>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <EstimatedSize>289477</EstimatedSize>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>Fecha</CubeDimensionID>
+          <Cardinality>One</Cardinality>
+          <Attributes>
+            <Attribute>
+              <AttributeID>DateKey</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>FactResellerSales</TableID>
+                    <ColumnID>OrderDateKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Anio</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Trimestre</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarQuarter</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Mes</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>MonthNumberOfYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>Producto</CubeDimensionID>
+          <Cardinality>One</Cardinality>
+          <Attributes>
+            <Attribute>
+              <AttributeID>ProductKey</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>FactResellerSales</TableID>
+                    <ColumnID>ProductKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute>
+              <AttributeID>NombreProducto</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProduct</TableID>
+                    <ColumnID>EnglishProductName</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Subcategoria</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProductSubcategory</TableID>
+                    <ColumnID>ProductSubcategoryKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Categoria</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProductCategory</TableID>
+                    <ColumnID>ProductCategoryKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>Territorio</CubeDimensionID>
+          <Cardinality>One</Cardinality>
+          <Attributes>
+            <Attribute>
+              <AttributeID>TerritoryKey</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>FactResellerSales</TableID>
+                    <ColumnID>SalesTerritoryKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Region</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesTerritory</TableID>
+                    <ColumnID>SalesTerritoryRegion</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Pais</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesTerritory</TableID>
+                    <ColumnID>SalesTerritoryCountry</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+            <Attribute>
+              <AttributeID>Grupo</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesTerritory</TableID>
+                    <ColumnID>SalesTerritoryGroup</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions>
+        <Partition>
+          <ID>VentasReseller</ID>
+          <Name>Ventas por Revendedor</Name>
+          <CreatedTimestamp>2026-11-08T22:04:49.753333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2026-11-08T22:04:49.753333Z</LastSchemaUpdate>
+          <LastProcessed>2026-11-08T22:04:50.553333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="TableBinding">
+            <DataSourceID>AdventureWorksDW2022</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>FactResellerSales</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching>
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" />
+          </ProactiveCaching>
+          <EstimatedSize>289477</EstimatedSize>
+        </Partition>
+      </Partitions>
+      <ProactiveCaching>
+        <SilenceInterval>-PT1S</SilenceInterval>
+        <Latency>-PT1S</Latency>
+        <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+        <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+        <Source xsi:type="ProactiveCachingInheritedBinding" />
+      </ProactiveCaching>
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source>
+    <DataSourceViewID>AdventureWorksDW2022DSV</DataSourceViewID>
+  </Source>
+  <MdxScripts>
+    <MdxScript>
+      <ID>MdxScript</ID>
+      <Name>MdxScript</Name>
+      <CreatedTimestamp>2026-11-08T22:04:49.756667Z</CreatedTimestamp>
+      <LastSchemaUpdate>2026-11-08T22:04:49.756667Z</LastSchemaUpdate>
+      <Commands>
+        <Command>
+          <Text>CALCULATE;
+CREATE MEMBER CURRENTCUBE.[Measures].[Internet Utilidad] AS [Measures].[Internet Monto de Ventas] - [Measures].[Internet Costo del Producto], FORMAT_STRING = "Currency", VISIBLE = 1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Reseller Utilidad] AS [Measures].[Reseller Monto de Ventas] - [Measures].[Reseller Costo del Producto], FORMAT_STRING = "Currency", VISIBLE = 1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Total Ventas] AS [Measures].[Internet Monto de Ventas] + [Measures].[Reseller Monto de Ventas], FORMAT_STRING = "Currency", VISIBLE = 1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Utilidad Total] AS [Measures].[Internet Utilidad] + [Measures].[Reseller Utilidad], FORMAT_STRING = "Currency", VISIBLE = 1;
+CREATE SET CURRENTCUBE.[Top 10 Productos] AS TOPCOUNT([Producto].[Nombre del Producto].[Nombre del Producto].MEMBERS, 10, [Measures].[Utilidad Total]);
+CREATE MEMBER CURRENTCUBE.[Measures].[Utilidad Top 10] AS IIF(COUNT(INTERSECT({[Producto].[Nombre del Producto].CurrentMember}, [Top 10 Productos])) &gt; 0, [Measures].[Utilidad Total], NULL), FORMAT_STRING = "Currency", VISIBLE = 1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Ventas Top 10] AS IIF(COUNT(INTERSECT({[Producto].[Nombre del Producto].CurrentMember}, [Top 10 Productos])) &gt; 0, [Measures].[Total Ventas], NULL), FORMAT_STRING = "Currency", VISIBLE = 1;</Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
+</Cube>
