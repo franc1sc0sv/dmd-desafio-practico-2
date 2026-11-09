@@ -1,0 +1,1 @@
+{"Version":1,"Connections":[{"Name":"EntityDataSource","ConnectionString":"Data Source=localhost;Initial Catalog=AdventureWorksCubo;Cube=\"Ventas AdventureWorks\"","IsMultiDimensional":true,"ConnectionType":"analysisServicesDatabaseLive"}]}
