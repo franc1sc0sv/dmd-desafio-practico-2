@@ -1,0 +1,6 @@
+﻿-- P3: los 10 productos más rentables
+SELECT
+  { [Measures].[Utilidad Total], [Measures].[Total Ventas] } ON COLUMNS,
+  TOPCOUNT( NONEMPTY( [Producto].[Categoría-Subcategoría-Producto].Levels(3).MEMBERS, [Measures].[Utilidad Total] ),
+            10, [Measures].[Utilidad Total] ) ON ROWS
+FROM [Ventas AdventureWorks]

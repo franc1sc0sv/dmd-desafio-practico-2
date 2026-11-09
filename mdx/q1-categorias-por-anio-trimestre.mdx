@@ -1,0 +1,6 @@
+﻿-- Pregunta 1 (a): cómo varían las ventas de cada categoría de un trimestre a otro.
+SELECT
+  NON EMPTY [Fecha].[Año-Trimestre-Mes].Levels(2).MEMBERS ON COLUMNS,
+  NON EMPTY [Producto].[Categoría-Subcategoría-Producto].Levels(1).MEMBERS ON ROWS
+FROM [Ventas AdventureWorks]
+WHERE ( [Measures].[Total Ventas] )

@@ -1,0 +1,8 @@
+﻿-- P2: utilidad y margen por territorio y comparación Internet vs Reseller
+WITH MEMBER [Measures].[Margen %] AS IIF([Measures].[Total Ventas] = 0, NULL, [Measures].[Utilidad Total] / [Measures].[Total Ventas]), FORMAT_STRING = "Percent"
+SELECT
+  { [Measures].[Utilidad Total], [Measures].[Margen %], [Measures].[Internet Utilidad], [Measures].[Reseller Utilidad],
+    [Measures].[Internet Monto de Ventas], [Measures].[Reseller Monto de Ventas] } ON COLUMNS,
+  NON EMPTY ORDER( [Territorio de Ventas].[Grupo-País-Región].Levels(3).MEMBERS,
+                   [Measures].[Utilidad Total], BDESC ) ON ROWS
+FROM [Ventas AdventureWorks]

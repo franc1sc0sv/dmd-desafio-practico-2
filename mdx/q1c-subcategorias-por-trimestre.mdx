@@ -1,0 +1,6 @@
+﻿-- Pregunta 1 (c): las 10 subcategorías con más ventas y cómo varían trimestre a trimestre en 2013.
+SELECT
+  FILTER( [Fecha].[Año-Trimestre-Mes].Levels(2).MEMBERS, INSTR([Fecha].[Año-Trimestre-Mes].CURRENTMEMBER.MEMBER_CAPTION, "2013") > 0 ) ON COLUMNS,
+  TOPCOUNT( [Producto].[Categoría-Subcategoría-Producto].Levels(2).MEMBERS, 10, [Measures].[Total Ventas] ) ON ROWS
+FROM [Ventas AdventureWorks]
+WHERE ( [Measures].[Total Ventas] )

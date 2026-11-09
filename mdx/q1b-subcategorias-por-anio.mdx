@@ -1,0 +1,6 @@
+﻿-- Pregunta 1 (b): subcategorías con mayor volumen de ventas, por año.
+SELECT
+  NON EMPTY [Fecha].[Año-Trimestre-Mes].Levels(1).MEMBERS ON COLUMNS,
+  NON EMPTY ORDER( [Producto].[Categoría-Subcategoría-Producto].Levels(2).MEMBERS, [Measures].[Total Ventas], BDESC ) ON ROWS
+FROM [Ventas AdventureWorks]
+WHERE ( [Measures].[Total Ventas] )
