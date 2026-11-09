@@ -1,0 +1,9 @@
+docs/.tmp/
+powerbi/.build/
+__pycache__/
+*.bak
+*.dwproj.user
+.vs/
+bin/
+obj/
+Backup/
