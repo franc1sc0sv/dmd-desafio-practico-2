@@ -1,0 +1,44 @@
+{
+    "screen":  [
+                   3440,
+                   1440
+               ],
+    "marks":  [
+                  {
+                      "name":  "Producto.dim [Design]",
+                      "rect":  [
+                                   0,
+                                   0,
+                                   3440,
+                                   32
+                               ]
+                  },
+                  {
+                      "name":  "Attributes",
+                      "rect":  [
+                                   8,
+                                   150,
+                                   897,
+                                   22
+                               ]
+                  },
+                  {
+                      "name":  "Hierarchies",
+                      "rect":  [
+                                   911,
+                                   150,
+                                   1242,
+                                   22
+                               ]
+                  },
+                  {
+                      "name":  "Data Source View",
+                      "rect":  [
+                                   2159,
+                                   150,
+                                   919,
+                                   22
+                               ]
+                  }
+              ]
+}

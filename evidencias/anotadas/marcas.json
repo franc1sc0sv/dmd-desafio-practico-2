@@ -1,0 +1,648 @@
+{
+ "05-entorno-instalado": {
+  "labels": [
+   "Versiones: Windows 11, SQL Server 2025 Developer, Visual Studio 2022, SSMS 22, Power BI Desktop 2.159 y la extensión Analysis Services Projects.",
+   "Los dos servicios están en ejecución: el motor relacional y Analysis Services (SSAS).",
+   "Base AdventureWorksDW2022 en línea (60 398 y 60 855 filas de ventas) y el cubo «Ventas AdventureWorks» en estado Processed."
+  ],
+  "rects": [
+   [
+    0,
+    128,
+    1180,
+    90
+   ],
+   [
+    0,
+    266,
+    700,
+    62
+   ],
+   [
+    0,
+    378,
+    1200,
+    172
+   ]
+  ]
+ },
+ "10-ssms-restauracion-mensajes": {
+  "labels": [
+   "Pestaña Messages: aquí SQL Server escribe el avance de la restauración.",
+   "Avance 25 %, 50 %, 75 %, 100 % y la actualización de la base a la versión de SQL Server 2025, sin errores."
+  ],
+  "rects": [
+   [
+    70,
+    742,
+    150,
+    34
+   ],
+   [
+    20,
+    785,
+    1700,
+    400
+   ]
+  ]
+ },
+ "11-ssms-restauracion-resultado": {
+  "labels": [
+   "Script de restauración: usa la ruta del respaldo .bak y mueve los archivos a la carpeta de datos del servidor.",
+   "AdventureWorksDW2022 en estado ONLINE, nivel de compatibilidad 160."
+  ],
+  "rects": [
+   [
+    60,
+    150,
+    1750,
+    330
+   ],
+   [
+    20,
+    775,
+    560,
+    52
+   ]
+  ]
+ },
+ "12-ssms-exploracion-datos": {
+  "labels": [
+   "Script 02-exploracion.sql.",
+   "Resultados: las tablas elegidas (FactInternetSales, FactResellerSales, DimDate, DimProduct, DimProductSubcategory, DimProductCategory y DimSalesTerritory) con su número de filas."
+  ],
+  "rects": [
+   [
+    60,
+    130,
+    1800,
+    330
+   ],
+   [
+    20,
+    775,
+    1500,
+    540
+   ]
+  ]
+ },
+ "30-vs-explorador-de-soluciones": {
+  "labels": [
+   "Origen de datos: conexión a AdventureWorksDW2022.",
+   "Vista del origen de datos: tablas y relaciones elegidas.",
+   "El cubo: medidas y dimensiones.",
+   "Dimensiones: Fecha, Producto y Territorio de Ventas."
+  ],
+  "rects": [
+   [
+    3087,
+    201,
+    346,
+    19
+   ],
+   [
+    339,
+    71,
+    209,
+    21
+   ],
+   [
+    0,
+    0,
+    3440,
+    32
+   ],
+   [
+    931,
+    71,
+    151,
+    21
+   ]
+  ]
+ },
+ "34-vs-vista-origen-datos": {
+  "labels": [
+   "Pestaña de la vista del origen de datos.",
+   "Las dos tablas de hechos (amarillas) se unen a Fecha, Producto (que sigue a Subcategoría y Categoría) y Territorio."
+  ],
+  "rects": [
+   [
+    215,
+    60,
+    170,
+    36
+   ],
+   [
+    1180,
+    330,
+    1300,
+    720
+   ]
+  ]
+ },
+ "31-vs-dimension-fecha": {
+  "labels": [
+   "Diseñador de la dimensión Fecha.",
+   "Atributos de la dimensión.",
+   "Jerarquía Año-Trimestre-Mes.",
+   "Tabla DimDate; NombreTrimestre es una columna calculada («2013 T1»)."
+  ],
+  "rects": [
+   [
+    800,
+    60,
+    165,
+    36
+   ],
+   [
+    8,
+    155,
+    900,
+    200
+   ],
+   [
+    915,
+    155,
+    1240,
+    200
+   ],
+   [
+    2165,
+    150,
+    900,
+    720
+   ]
+  ]
+ },
+ "32-vs-dimension-producto": {
+  "labels": [
+   "Diseñador de la dimensión Producto.",
+   "Atributos: Categoría, Subcategoría y Nombre del Producto.",
+   "Jerarquía Categoría-Subcategoría-Producto.",
+   "DimProduct, DimProductSubcategory y DimProductCategory."
+  ],
+  "rects": [
+   [
+    630,
+    60,
+    150,
+    36
+   ],
+   [
+    8,
+    155,
+    900,
+    200
+   ],
+   [
+    915,
+    155,
+    1240,
+    200
+   ],
+   [
+    2165,
+    150,
+    900,
+    720
+   ]
+  ]
+ },
+ "33-vs-dimension-territorio": {
+  "labels": [
+   "Diseñador de la dimensión Territorio de Ventas.",
+   "Atributos: Grupo, País y Región.",
+   "Jerarquía Grupo-País-Región.",
+   "Tabla DimSalesTerritory."
+  ],
+  "rects": [
+   [
+    425,
+    60,
+    180,
+    36
+   ],
+   [
+    8,
+    155,
+    900,
+    200
+   ],
+   [
+    915,
+    155,
+    1240,
+    200
+   ],
+   [
+    2165,
+    150,
+    900,
+    720
+   ]
+  ]
+ },
+ "35-vs-cubo-estructura": {
+  "labels": [
+   "Diseñador del cubo, pestaña Cube Structure.",
+   "Grupos de medidas: Ventas por Internet y Ventas por Revendedor.",
+   "Dimensiones del cubo: Fecha, Producto y Territorio de Ventas."
+  ],
+  "rects": [
+   [
+    8,
+    60,
+    170,
+    36
+   ],
+   [
+    7,
+    168,
+    200,
+    120
+   ],
+   [
+    7,
+    669,
+    200,
+    90
+   ]
+  ]
+ },
+ "36-vs-output-despliegue-exitoso": {
+  "labels": [
+   "Output: «Deploy: 1 succeeded, 0 failed», 0 errores y 0 advertencias; la base del servidor queda al día.",
+   "Barra de estado: Ready, sin errores."
+  ],
+  "rects": [
+   [
+    10,
+    1215,
+    1500,
+    110
+   ],
+   [
+    0,
+    1365,
+    300,
+    30
+   ]
+  ]
+ },
+ "13-ssms-sql-p1": {
+  "labels": [
+   "Consulta SQL (script 03a).",
+   "Resultado: ventas por año, trimestre, categoría y subcategoría."
+  ],
+  "rects": [
+   [
+    60,
+    130,
+    1800,
+    420
+   ],
+   [
+    20,
+    775,
+    1700,
+    540
+   ]
+  ]
+ },
+ "14-ssms-sql-p2": {
+  "labels": [
+   "Consulta SQL (script 03b): utilidad = monto de ventas menos costo del producto.",
+   "Resultado ordenado de mayor a menor utilidad."
+  ],
+  "rects": [
+   [
+    60,
+    130,
+    1800,
+    420
+   ],
+   [
+    20,
+    775,
+    1700,
+    540
+   ]
+  ]
+ },
+ "15-ssms-sql-p3": {
+  "labels": [
+   "Consulta SQL (script 03c).",
+   "Resultados: el top 10 y su distribución por trimestre."
+  ],
+  "rects": [
+   [
+    60,
+    130,
+    1800,
+    480
+   ],
+   [
+    20,
+    775,
+    1700,
+    540
+   ]
+  ]
+ },
+ "20-mdx-p1-trimestres": {
+  "labels": [
+   "Consulta MDX.",
+   "Ventas por trimestre (se ve cómo cambian de un trimestre a otro)."
+  ],
+  "rects": [
+   [
+    0,
+    154,
+    660,
+    92
+   ],
+   [
+    0,
+    314,
+    878,
+    268
+   ]
+  ]
+ },
+ "21-mdx-p1-anios": {
+  "labels": [
+   "Consulta MDX.",
+   "Las bicicletas de ruta y de montaña encabezan; los accesorios aportan poco."
+  ],
+  "rects": [
+   [
+    0,
+    80,
+    998,
+    54
+   ],
+   [
+    0,
+    186,
+    679,
+    587
+   ]
+  ]
+ },
+ "25-mdx-p1-subcat-trimestres": {
+  "labels": [
+   "Consulta MDX.",
+   "Las bicicletas se mantienen estables entre trimestres; los marcos (frames) y la ropa bajan después del primer trimestre."
+  ],
+  "rects": [
+   [
+    0,
+    154,
+    1164,
+    92
+   ],
+   [
+    0,
+    298,
+    567,
+    187
+   ]
+  ]
+ },
+ "22-mdx-p2-territorios": {
+  "labels": [
+   "Consulta MDX.",
+   "Australia es el territorio más rentable (margen 33,57 %); en varios territorios la utilidad de Revendedor es casi cero o negativa."
+  ],
+  "rects": [
+   [
+    0,
+    154,
+    1285,
+    124
+   ],
+   [
+    0,
+    330,
+    990,
+    187
+   ]
+  ]
+ },
+ "23-mdx-p3-top10": {
+  "labels": [
+   "Consulta MDX con TOPCOUNT.",
+   "Seis variantes de la Mountain-200 y cuatro de la Road-150 Red."
+  ],
+  "rects": [
+   [
+    0,
+    154,
+    924,
+    92
+   ],
+   [
+    0,
+    298,
+    415,
+    187
+   ]
+  ]
+ },
+ "24-mdx-p3-top10-trimestres": {
+  "labels": [
+   "Consulta MDX.",
+   "La Road-150 vende hasta 2011 T4; la Mountain-200 aparece en 2011 T4 y sigue hasta 2013 T4."
+  ],
+  "rects": [
+   [
+    0,
+    138,
+    924,
+    108
+   ],
+   [
+    0,
+    314,
+    847,
+    459
+   ]
+  ]
+ },
+ "p-01-dialogo-conexion": {
+  "labels": [
+   "Servidor localhost y base AdventureWorksCubo.",
+   "Opción «Connect live»: Power BI consulta el cubo directamente, no copia datos.",
+   "Botón OK."
+  ],
+  "rects": [
+   [
+    1395,
+    605,
+    470,
+    90
+   ],
+   [
+    1395,
+    716,
+    130,
+    34
+   ],
+   [
+    1890,
+    800,
+    75,
+    36
+   ]
+  ]
+ },
+ "p-02-credenciales": {
+  "labels": [
+   "«Use my current credentials».",
+   "Botón Connect."
+  ],
+  "rects": [
+   [
+    1570,
+    600,
+    200,
+    34
+   ],
+   [
+    1895,
+    822,
+    80,
+    34
+   ]
+  ]
+ },
+ "p-03-navegador-cubo": {
+  "labels": [
+   "Base AdventureWorksCubo y cubo «Ventas AdventureWorks».",
+   "Botón OK para cargarlo."
+  ],
+  "rects": [
+   [
+    1310,
+    465,
+    270,
+    60
+   ],
+   [
+    1990,
+    998,
+    75,
+    38
+   ]
+  ]
+ },
+ "40-powerbi-1-pagina1-categorias-trimestres": {
+  "labels": [
+   "Ventas por año, apiladas por categoría.",
+   "Ventas por trimestre: líneas por categoría.",
+   "Matriz de subcategorías por año, de mayor a menor venta.",
+   "Pestaña de la página 1."
+  ],
+  "rects": [
+   [
+    437,
+    262,
+    1020,
+    505
+   ],
+   [
+    1482,
+    262,
+    995,
+    505
+   ],
+   [
+    437,
+    790,
+    2040,
+    525
+   ],
+   [
+    169,
+    1326,
+    185,
+    34
+   ]
+  ]
+ },
+ "40-powerbi-2-pagina2-territorios": {
+  "labels": [
+   "Utilidad por territorio: Internet frente a Revendedor.",
+   "Ventas por territorio y canal.",
+   "Detalle por territorio.",
+   "Totales: utilidad 12,55 M y ventas 109,81 M.",
+   "Pestaña de la página 2."
+  ],
+  "rects": [
+   [
+    437,
+    262,
+    1020,
+    555
+   ],
+   [
+    1482,
+    262,
+    995,
+    555
+   ],
+   [
+    437,
+    850,
+    1530,
+    470
+   ],
+   [
+    1985,
+    850,
+    495,
+    470
+   ],
+   [
+    353,
+    1326,
+    110,
+    34
+   ]
+  ]
+ },
+ "40-powerbi-3-pagina3-top10-productos": {
+  "labels": [
+   "Los 10 productos con más utilidad.",
+   "Su venta por año.",
+   "Su venta por trimestre.",
+   "Pestaña de la página 3."
+  ],
+  "rects": [
+   [
+    437,
+    262,
+    1020,
+    555
+   ],
+   [
+    1482,
+    262,
+    995,
+    555
+   ],
+   [
+    437,
+    850,
+    2040,
+    470
+   ],
+   [
+    469,
+    1326,
+    140,
+    34
+   ]
+  ]
+ }
+}

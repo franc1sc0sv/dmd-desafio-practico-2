@@ -1,0 +1,17 @@
+{
+    "screen":  [
+                   3440,
+                   1440
+               ],
+    "marks":  [
+                  {
+                      "name":  "AdventureWorksDW2022 DSV.dsv [Design]",
+                      "rect":  [
+                                   0,
+                                   0,
+                                   3440,
+                                   32
+                               ]
+                  }
+              ]
+}

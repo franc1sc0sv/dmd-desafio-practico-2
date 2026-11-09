@@ -1,0 +1,17 @@
+{
+    "screen":  [
+                   3440,
+                   1440
+               ],
+    "marks":  [
+                  {
+                      "name":  "Ventas AdventureWorks.cube [Design]",
+                      "rect":  [
+                                   0,
+                                   0,
+                                   3440,
+                                   32
+                               ]
+                  }
+              ]
+}

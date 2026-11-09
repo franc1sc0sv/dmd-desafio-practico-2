@@ -1,0 +1,44 @@
+{
+    "screen":  [
+                   3440,
+                   1440
+               ],
+    "marks":  [
+                  {
+                      "name":  "AdventureWorksDW2022.ds",
+                      "rect":  [
+                                   3087,
+                                   201,
+                                   346,
+                                   19
+                               ]
+                  },
+                  {
+                      "name":  "AdventureWorksDW2022 DSV.dsv",
+                      "rect":  [
+                                   339,
+                                   71,
+                                   209,
+                                   21
+                               ]
+                  },
+                  {
+                      "name":  "Ventas AdventureWorks.cube",
+                      "rect":  [
+                                   0,
+                                   0,
+                                   3440,
+                                   32
+                               ]
+                  },
+                  {
+                      "name":  "Fecha.dim",
+                      "rect":  [
+                                   931,
+                                   71,
+                                   151,
+                                   21
+                               ]
+                  }
+              ]
+}
